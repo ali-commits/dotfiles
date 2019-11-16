@@ -46,6 +46,7 @@ then
   source $plugins
 else
   wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/plugins.zsh -O $plugins
+  source $plugins
 fi
 
 # source config file
@@ -54,6 +55,7 @@ then
   source $config
 else
   wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/config.zsh -O $config
+  source $config
 fi
 
 # source abbrevations and aliases file
@@ -62,6 +64,7 @@ then
   source $abbr
 else
   wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/aliases.zsh -O $abbr
+  source $abbr
 fi
 
 # source powerleve10k theme config file
