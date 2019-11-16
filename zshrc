@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 #show
 echo
 neofetch 
@@ -36,11 +29,40 @@ autoload -Uz _zplugin
 # |___/\___/ \__,_|_|  \___\___|
 #
 
+### check if the resource file exist
+if [ ! -d ~/.zsh ]
+then
+  mkdir ~/.zsh
+fi
+
+### define variables for the resource files
 export abbr=~/.zsh/aliases.zsh
 export plugins=~/.zsh/plugins.zsh
 export config=~/.zsh/config.zsh
 
-source $plugins
-source $abbr
-source $config
+# source plugins file
+if [ -f $plugins ] 
+then
+  source $plugins
+else
+  wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/plugins.zsh -O $plugins
+fi
+
+# source config file
+if [ -f $config ] 
+then
+  source $config
+else
+  wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/config.zsh -O $config
+fi
+
+# source abbrevations and aliases file
+if [ -f $abbr ] 
+then
+  source $abbr
+else
+  wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/aliases.zsh -O $abbr
+fi
+
+# source powerleve10k theme config file
 source ~/.p10k.zsh
