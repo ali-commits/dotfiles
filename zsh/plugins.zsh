@@ -6,12 +6,14 @@
 #                 |_|            |___/  
 #
 
- zplugin light momo-lab/zsh-abbrev-alias
- zplugin light zsh-users/zsh-autosuggestions
- zplugin light zdharma/fast-syntax-highlighting
+#zplugin load momo-lab/zsh-abbrev-alias
+ zplugin load newaaa41/zsh-abbr
+ zplugin load zsh-users/zsh-autosuggestions
+ zplugin load zdharma/fast-syntax-highlighting
  zplugin ice depth=1; zplugin light romkatv/powerlevel10k
  zplugin snippet OMZ::plugins/sudo/sudo.plugin.zsh
  zplugin snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
- zplugin light zsh-users/zsh-history-substring-search
- zplugin light zlsun/solarized-man 
- zplugin light gko/ssh-connect
+ zplugin load zsh-users/zsh-history-substring-search
+ zplugin load zlsun/solarized-man 
+ zplugin load gko/ssh-connect
+ zplugin light newaaa41/zsh-cursorShapes 
