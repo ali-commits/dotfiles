@@ -30,42 +30,20 @@ autoload -Uz _zplugin
 #
 
 ### check if the resource file exist
-if [ ! -d ~/.zsh ]
-then
-  mkdir ~/.zsh
-fi
-
+[ ! -d ~/.zsh ] && mkdir ~/.zsh
 ### define variables for the resource files
-export abbr=~/.zsh/aliases.zsh
+export abbrs=~/.zsh/aliases.zsh
 export plugins=~/.zsh/plugins.zsh
 export config=~/.zsh/config.zsh
 
 # source plugins file
-if [ -f $plugins ] 
-then
-  source $plugins
-else
-  wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/plugins.zsh -O $plugins
-  source $plugins
-fi
+[[ ! -f $plugins ]] && wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/plugins.zsh -O $plugins
+[[ ! -f $config ]] && wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/config.zsh -O $config
+[[ ! -f $abbrs ]] && wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/aliases.zsh -O $abbrs
 
-# source config file
-if [ -f $config ] 
-then
-  source $config
-else
-  wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/config.zsh -O $config
-  source $config
-fi
-
-# source abbrevations and aliases file
-if [ -f $abbr ] 
-then
-  source $abbr
-else
-  wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/aliases.zsh -O $abbr
-  source $abbr
-fi
+source $plugins
+source $config
+source $abbrs
 
 # source powerleve10k theme config file
-source ~/.p10k.zsh
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
