@@ -33,4 +33,4 @@ alias 0="cd ~"
 alias ..="cd .."
 alias ...="cd ../.."
 alias ....="cd ../../.."
-alias grep='grep  --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
+alias ip="grc --colour=auto ip"
