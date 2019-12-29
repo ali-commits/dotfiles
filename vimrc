@@ -15,16 +15,15 @@ endif
 "plugin
 
 call plug#begin('~/.vim/plugged')
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'easymotion/vim-easymotion' 
 Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'kien/ctrlp.vim' 
+Plug 'vim-syntastic/syntastic'
+"Plug 'tpope/vim-fugitive'
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -41,6 +40,11 @@ set wildmode=longest,list,full
 set splitbelow splitright
 set encoding=utf-8
 set tabstop=4
+let mapleader = " "
+
+set rtp+=/home/ali/.local/lib/python3.8/site-packages/powerline/bindings/vim
+set laststatus=2
+set t_Co=256
 
 "change cursor based on mode
 if exists('$TMUX')
@@ -69,12 +73,11 @@ augroup END
 
 nnoremap gy :Goyo<CR>  
 map <C-n> :NERDTreeToggle<CR>
-map mm :set nu! relativenumber!<CR>
-map mn :set relativenumber!<CR>
+map <C-m> :set nu! relativenumber!<CR>
 map ;; <ESC>
 inoremap ;; <ESC><ESC>
-nmap ;; :q<CR>
-map ;z :wq<CR>
+nmap ;z :q<CR>
+map ;w :w<CR>
 
 nnoremap J 0
 nnoremap K $

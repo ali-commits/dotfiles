@@ -84,8 +84,5 @@ take() # create dirctory and cd to it
 { 
         mkdir $1 && cd $1
 }
-bindkey '^t' take
 # auto ls (with colorls) when cd to directory 
-chpwd() colorls
-
-
+chpwd() colorls --group-directories-first
