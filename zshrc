@@ -13,10 +13,10 @@ neofetch
 ### install zplugin
 if [ ! -d ~/.zplugin ] 
 then
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zplugin/master/doc/install.sh)"
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 fi
 ### Added by Zplugin's installer
-source "$HOME/.zplugin/bin/zplugin.zsh"
+source ~/.zinit/bin/zinit.zsh
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin installer's chunk
