@@ -11,7 +11,7 @@ neofetch
 #     |_|            |___/
 
 ### install zplugin
-if [ ! -d ~/.zplugin ] 
+if [ ! -d ~/.zinit ] 
 then
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 fi
