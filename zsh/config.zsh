@@ -6,7 +6,7 @@
 #  \___\___/|_| |_|_| |_|\__, |
 #                        |___/
 
-export PATH=$HOME/.bin:/usr/local/bin:$PATH
+export PATH=$HOME/.bin:/usr/local/bin:$HOME/.gem/ruby/2.7.0/bin:$PATH
 export VISUAL=vim
 export EDITOR=vim
 setopt autocd #change dirictories without ch ( directory name only ) 
