@@ -19,3 +19,4 @@
  zinit light zpm-zsh/colorize
  zinit light ytakahashi/igit
  zinit light zdharma/fast-syntax-highlighting
+ zinit ice depth=1; zinit light zpm-zsh/ssh

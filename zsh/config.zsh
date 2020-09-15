@@ -6,7 +6,7 @@
 #  \___\___/|_| |_|_| |_|\__, |
 #                        |___/
 
-export PATH=$HOME/.bin:/usr/local/bin:$HOME/.gem/ruby/2.7.0/bin:$PATH
+export PATH=$HOME/.bin:/usr/local/bin:$HOME/.gem/ruby/2.7.0/bin:/root/.gem/ruby/2.7.0/bin:/var/lib/snapd/snap/bin:$PATH
 export VISUAL=vim
 export EDITOR=vim
 setopt autocd #change dirictories without ch ( directory name only ) 
@@ -21,7 +21,7 @@ export HISTFILE=~/.zsh_history
 ZSH_AUTOSUGGEST_STRATEGY=(history completion )
 ZSH_AUTOSUGGEST_USE_ASYNC=1 #async auto suggestions
 
-fast-theme -q zdharma # set theme for fast-theme-auto-highlight plugin
+fast-theme -q default # set theme for fast-theme-auto-highlight plugin
 
 #######################################################################
 #              _                                  _      _       
