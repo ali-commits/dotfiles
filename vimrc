@@ -15,15 +15,17 @@ endif
 "plugin
 
 call plug#begin('~/.vim/plugged')
+
+" look and feel
+Plug 'itchyny/lightline.vim'
+Plug 'machakann/vim-highlightedyank'
+
+"usability
 Plug 'easymotion/vim-easymotion' 
-Plug 'junegunn/goyo.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'mattn/emmet-vim'
-Plug 'sheerun/vim-polyglot'
-Plug 'jiangmiao/auto-pairs'
-Plug 'kien/ctrlp.vim' 
-Plug 'vim-syntastic/syntastic'
-"Plug 'tpope/vim-fugitive'
+"Plug 'mattn/emmet-vim'
+"Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -42,9 +44,6 @@ set encoding=utf-8
 set tabstop=4
 let mapleader = " "
 
-set rtp+=/home/ali/.local/lib/python3.8/site-packages/powerline/bindings/vim
-set laststatus=2
-set t_Co=256
 
 "change cursor based on mode
 if exists('$TMUX')
@@ -62,6 +61,25 @@ au!
 autocmd VimEnter * silent !echo -ne "\e[1 q"
 augroup END
 
+
+" Lightline
+let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'filename': 'LightlineFilename',
+      \   'cocstatus': 'coc#status'
+      \ },
+      \ 'colorscheme': 'codedark',
+      \ }
+
+function! LightlineFilename()
+  return expand('%:t') !=# '' ? @% : '[No Name]'
+endfunction
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  _  __          __  __             
 " | |/ /___ _   _|  \/  | __ _ _ __  
@@ -71,7 +89,6 @@ augroup END
 "           |___/             |_|   
 "keymap
 
-nnoremap gy :Goyo<CR>  
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :set nu! relativenumber!<CR>
 map ;; <ESC>
