@@ -93,6 +93,9 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-m> :set nu! relativenumber!<CR>
 map ;; <ESC>
 inoremap ;; <ESC><ESC>
+inoremap ;w <ESC><ESC>:w<CR> 
+inoremap ;wz <ESC><ESC>:wq<CR> 
+map ;wz :wq<CR> 
 nmap ;z :q<CR>
 map ;w :w<CR>
 

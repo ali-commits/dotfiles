@@ -48,3 +48,5 @@ source $abbrs
 # source powerleve10k theme config file
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
+
+

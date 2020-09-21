@@ -64,12 +64,16 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
-
+bindkey -M vicmd 'k'  history-substring-search-up
+bindkey -M vicmd 'j'  history-substring-search-down
+bindkey -M viins \^U  kill-whole-line
+#bindkey -M viins \^I  backward-kill-word
 bindkey -M viins ';;' vi-cmd-mode # exit from viins to vicmd (normal mode) using ;;
-bindkey -M vicmd "J" beginning-of-line
-bindkey -M vicmd "K" end-of-line
+bindkey -M viins ';d' backward-kill-line
+bindkey -M vicmd "J"  beginning-of-line
+bindkey -M vicmd "K"  end-of-line
+bindkey -M vicmd ";s" sudoSwitch 
+bindkey -M viins ";s" sudoSwitch 
 
 #######################################################################
 #   __                  _   _                 
@@ -86,3 +90,16 @@ take() # create dirctory and cd to it
 }
 # auto ls (with colorls) when cd to directory 
 chpwd() colorls --group-directories-first
+
+# history
+hist()
+{
+my_var=$1
+if [ -z "$my_var" ]
+then
+      cat ~/.zsh_history 
+else
+      cat ~/.zsh_history | grep -i $1
+fi
+
+}
