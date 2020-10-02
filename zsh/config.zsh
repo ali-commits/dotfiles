@@ -14,8 +14,8 @@ setopt inc_append_history # To save every command before it is executed
 setopt share_history # share history between sesions 
 setopt beep 
 
-export SAVEHIST=10000
-export HISTSIZE=10000
+export SAVEHIST=1000
+export HISTSIZE=1000
 export HISTFILE=~/.zsh_history
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion )
@@ -66,14 +66,12 @@ bindkey '^[[B' history-substring-search-down
 
 bindkey -M vicmd 'k'  history-substring-search-up
 bindkey -M vicmd 'j'  history-substring-search-down
-bindkey -M viins \^U  kill-whole-line
-#bindkey -M viins \^I  backward-kill-word
 bindkey -M viins ';;' vi-cmd-mode # exit from viins to vicmd (normal mode) using ;;
-bindkey -M viins ';d' backward-kill-line
+bindkey -M viins ';d' kill-whole-line
 bindkey -M vicmd "J"  beginning-of-line
 bindkey -M vicmd "K"  end-of-line
-bindkey -M vicmd ";s" sudoSwitch 
-bindkey -M viins ";s" sudoSwitch 
+bindkey ";s" sudoSwitch 
+bindkey ";h" history-incremental-pattern-search-backward
 
 #######################################################################
 #   __                  _   _                 
