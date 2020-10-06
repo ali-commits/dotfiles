@@ -17,8 +17,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " look and feel
-Plug 'itchyny/lightline.vim'
-Plug 'machakann/vim-highlightedyank'
+" Plug 'itchyny/lightline.vim'
 
 "usability
 Plug 'easymotion/vim-easymotion' 
@@ -60,24 +59,6 @@ augroup myCmds
 au!
 autocmd VimEnter * silent !echo -ne "\e[1 q"
 augroup END
-
-
-" Lightline
-let g:lightline = {
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'filename': 'LightlineFilename',
-      \   'cocstatus': 'coc#status'
-      \ },
-      \ 'colorscheme': 'codedark',
-      \ }
-
-function! LightlineFilename()
-  return expand('%:t') !=# '' ? @% : '[No Name]'
-endfunction
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
