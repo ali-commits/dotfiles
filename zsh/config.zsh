@@ -86,8 +86,14 @@ take() # create dirctory and cd to it
 { 
         mkdir $1 && cd $1
 }
-# auto ls (with colorls) when cd to directory 
-chpwd() colorls --group-directories-first
+# auto list dirs (with colorls) when cd to directory 
+if  command -v colorls &> /dev/null
+then
+    chpwd() colorls --group-directories-first
+else
+    chpwd() ls
+fi
+
 
 # history
 hist()
