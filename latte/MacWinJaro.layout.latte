@@ -17,7 +17,7 @@ raiseOnDesktopChange=false
 settingsComplexity=1
 timerHide=700
 timerShow=0
-viewType=1
+viewType=0
 visibility=0
 wallpaperplugin=org.kde.image
 
@@ -26,7 +26,7 @@ immutability=1
 plugin=AvalonMenu
 
 [Containments][12][Applets][139][Configuration]
-PreloadWeight=73
+PreloadWeight=61
 
 [Containments][12][Applets][139][Configuration][ConfigDialog]
 DialogHeight=990
@@ -54,10 +54,10 @@ animationWindowInAttention=false
 appletOrder=139
 appletShadowsEnabled=false
 autoSizeEnabled=false
+backgroundRadius=30
 dragActiveWindowEnabled=true
 fittsLawIsRequested=false
 iconSize=42
-inConfigureAppletsMode=true
 lengthExtMargin=6
 maxLength=3
 mouseWheelActions=false
@@ -92,7 +92,7 @@ byPassWM=false
 enableKWinEdges=true
 formfactor=2
 immutability=1
-isPreferredForShortcuts=false
+isPreferredForShortcuts=true
 lastScreen=11
 location=4
 onPrimary=false
@@ -102,7 +102,7 @@ raiseOnDesktopChange=false
 settingsComplexity=1
 timerHide=700
 timerShow=0
-viewType=1
+viewType=0
 visibility=0
 wallpaperplugin=org.kde.image
 
@@ -122,6 +122,7 @@ isInLatteDock=true
 launchers59=applications:brave-browser.desktop,applications:org.kde.dolphin.desktop,applications:visual-studio-code.desktop,applications:org.manjaro.pamac.manager.desktop,applications:teams.desktop,applications:discord.desktop,applications:telegramdesktop.desktop,applications:virtualbox.desktop,applications:draw.io.desktop,applications:org.kde.konsole.desktop,applications:org.kde.ksysguard.desktop
 manualScrollTasksType=Disabled
 showOnlyCurrentDesktop=true
+showWindowActions=true
 
 [Containments][13][ConfigDialog]
 DialogHeight=948
@@ -131,6 +132,7 @@ DialogWidth=539
 PreloadWeight=0
 
 [Containments][13][General]
+activeWindowFilter=FromAllScreens
 alignment=10
 alignmentUpgraded=true
 animationLauncherBouncing=false
@@ -139,18 +141,22 @@ animationWindowInAttention=false
 appletOrder=44
 appletShadowsEnabled=false
 autoSizeEnabled=false
-dragActiveWindowEnabled=true
+backgroundRadius=23
+blurEnabled=false
 fittsLawIsRequested=false
+floatingInternalGapIsForced=0
 iconSize=42
 lengthExtMargin=6
 maxLength=50
 mouseWheelActions=false
 offset=-13
+panelShadows=false
 panelSize=100
 panelTransparency=40
 screenEdgeMargin=4
-shadowOpacity=0
-shadowSize=0
+scrollAction=ScrollDesktops
+shadowColorType=Theme
+shadowOpacity=45
 shadowsUpgraded=true
 splitterPosition=1
 splitterPosition2=2
@@ -160,7 +166,7 @@ titleTooltips=false
 zoomLevel=0
 
 [Containments][13][Indicator]
-customType=
+customType=org.kde.latte.win10
 enabled=true
 type=org.kde.latte.default
 
@@ -168,6 +174,11 @@ type=org.kde.latte.default
 enabledForApplets=false
 extraDotOnActive=true
 minimizedTaskColoredDifferently=true
+
+[Containments][13][Indicator][org.kde.latte.win10][General]
+appletPadding=0.1
+lengthPadding=0.25
+maxBackgroundOpacity=0.3
 
 [Containments][14]
 activityId=
@@ -185,7 +196,7 @@ raiseOnDesktopChange=false
 settingsComplexity=1
 timerHide=700
 timerShow=0
-viewType=1
+viewType=0
 visibility=0
 wallpaperplugin=org.kde.image
 
@@ -194,7 +205,7 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][14][Applets][58][Configuration]
-PreloadWeight=12
+PreloadWeight=0
 
 [Containments][14][Applets][58][Configuration][Appearance]
 fontFamily=Ubuntu
@@ -221,10 +232,10 @@ animationWindowInAttention=false
 appletOrder=58
 appletShadowsEnabled=false
 autoSizeEnabled=false
+backgroundRadius=23
 dragActiveWindowEnabled=true
 fittsLawIsRequested=false
 iconSize=42
-inConfigureAppletsMode=true
 lengthExtMargin=6
 maxLength=8
 mouseWheelActions=false
@@ -270,7 +281,7 @@ raiseOnDesktopChange=false
 settingsComplexity=1
 timerHide=700
 timerShow=0
-viewType=1
+viewType=0
 visibility=0
 wallpaperplugin=org.kde.image
 
@@ -279,7 +290,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][15][Applets][131][Configuration]
-PreloadWeight=3
+PreloadWeight=51
 
 [Containments][15][ConfigDialog]
 DialogHeight=944
@@ -297,6 +308,7 @@ animationWindowInAttention=false
 appletOrder=131
 appletShadowsEnabled=false
 autoSizeEnabled=false
+backgroundRadius=23
 dragActiveWindowEnabled=true
 fittsLawIsRequested=false
 iconSize=42
@@ -351,7 +363,7 @@ immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][16][Applets][73][Configuration]
-PreloadWeight=9
+PreloadWeight=0
 
 [Containments][16][Applets][74]
 immutability=1
@@ -407,7 +419,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][16][Applets][87][Configuration]
-PreloadWeight=14
+PreloadWeight=2
 
 [Containments][16][ConfigDialog]
 DialogHeight=984
@@ -435,7 +447,7 @@ raiseOnDesktopChange=false
 settingsComplexity=1
 timerHide=700
 timerShow=0
-viewType=1
+viewType=0
 visibility=0
 wallpaperplugin=org.kde.image
 
@@ -444,7 +456,7 @@ immutability=1
 plugin=org.kde.netspeedWidget
 
 [Containments][17][Applets][138][Configuration]
-PreloadWeight=18
+PreloadWeight=0
 
 [Containments][17][Applets][138][Configuration][ConfigDialog]
 DialogHeight=990
@@ -466,7 +478,7 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][17][Applets][94][Configuration]
-PreloadWeight=84
+PreloadWeight=73
 SystrayContainmentId=16
 
 [Containments][17][ConfigDialog]
@@ -485,9 +497,11 @@ animationWindowInAttention=false
 appletOrder=138;94
 appletShadowsEnabled=false
 autoSizeEnabled=false
+backgroundRadius=23
 dragActiveWindowEnabled=true
 fittsLawIsRequested=false
 iconSize=42
+inConfigureAppletsMode=true
 lengthExtMargin=6
 maxLength=25
 mouseWheelActions=false
@@ -507,7 +521,7 @@ titleTooltips=false
 zoomLevel=0
 
 [Containments][17][Indicator]
-customType=
+customType=org.kde.latte.win10
 enabled=true
 type=org.kde.latte.default
 
@@ -532,7 +546,7 @@ raiseOnDesktopChange=false
 settingsComplexity=1
 timerHide=700
 timerShow=0
-viewType=1
+viewType=0
 visibility=0
 wallpaperplugin=org.kde.image
 
@@ -559,18 +573,18 @@ plugin=org.kde.plasma.win7showdesktop
 PreloadWeight=0
 
 [Containments][18][Applets][135][Configuration][ConfigDialog]
-DialogHeight=540
-DialogWidth=720
+DialogHeight=989
+DialogWidth=1896
 
 [Containments][18][Applets][135][Configuration][General]
 click_action=minimizeall
 click_command=qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "ExposeAll"
-hoveredColor=#3244454b
+hoveredColor=#6444454b
 mousewheel_down=qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Switch One Desktop to the Right"
 mousewheel_up=qdbus org.kde.kglobalaccel /component/kwin invokeShortcut "Switch One Desktop to the Left"
 peekingEnabled=true
 peekingThreshold=600
-pressedColor=#325657f5
+pressedColor=#645657f5
 size=11
 
 [Containments][18][Applets][136]
@@ -578,10 +592,15 @@ immutability=1
 plugin=org.kde.plasma.translator
 
 [Containments][18][Applets][136][Configuration]
-PreloadWeight=0
+PreloadWeight=15
+
+[Containments][18][Applets][136][Configuration][ConfigDialog]
+DialogHeight=989
+DialogWidth=1896
 
 [Containments][18][Applets][136][Configuration][General]
 destinationIndex=3
+sourceIndex=22
 
 [Containments][18][ConfigDialog]
 DialogHeight=944
@@ -596,16 +615,19 @@ alignmentUpgraded=true
 animationLauncherBouncing=false
 animationWindowAddedInGroup=false
 animationWindowInAttention=false
-appletOrder=135;134;136
+appletOrder=136;134;135
 appletShadowsEnabled=false
 autoSizeEnabled=false
+backgroundRadius=23
+blurEnabled=false
 dragActiveWindowEnabled=true
 fittsLawIsRequested=false
 iconSize=42
-inConfigureAppletsMode=true
+lengthExtMargin=10
 maxLength=7
 mouseWheelActions=false
 offset=-42
+panelShadows=false
 panelSize=100
 panelTransparency=40
 screenEdgeMargin=4
