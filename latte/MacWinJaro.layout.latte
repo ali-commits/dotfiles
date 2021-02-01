@@ -26,7 +26,7 @@ immutability=1
 plugin=AvalonMenu
 
 [Containments][12][Applets][139][Configuration]
-PreloadWeight=61
+PreloadWeight=0
 
 [Containments][12][Applets][139][Configuration][ConfigDialog]
 DialogHeight=990
@@ -64,7 +64,7 @@ mouseWheelActions=false
 offset=-48
 panelShadows=false
 panelSize=100
-panelTransparency=40
+panelTransparency=60
 screenEdgeMargin=4
 shadowOpacity=0
 shadowSize=0
@@ -119,13 +119,13 @@ animationWindowAddedInGroup=false
 animationWindowInAttention=false
 hoverAction=PreviewAndHighlightWindows
 isInLatteDock=true
-launchers59=applications:brave-browser.desktop,applications:org.kde.dolphin.desktop,applications:visual-studio-code.desktop,applications:org.manjaro.pamac.manager.desktop,applications:teams.desktop,applications:discord.desktop,applications:telegramdesktop.desktop,applications:virtualbox.desktop,applications:draw.io.desktop,applications:org.kde.konsole.desktop,applications:org.kde.ksysguard.desktop
+launchers59=applications:brave-browser.desktop,applications:org.kde.dolphin.desktop,applications:visual-studio-code.desktop,applications:teams.desktop,applications:discord.desktop,applications:telegramdesktop.desktop,applications:org.kde.konsole.desktop,applications:org.kde.ksysguard.desktop
 manualScrollTasksType=Disabled
 showOnlyCurrentDesktop=true
 showWindowActions=true
 
 [Containments][13][ConfigDialog]
-DialogHeight=948
+DialogHeight=942
 DialogWidth=539
 
 [Containments][13][Configuration]
@@ -142,7 +142,6 @@ appletOrder=44
 appletShadowsEnabled=false
 autoSizeEnabled=false
 backgroundRadius=23
-blurEnabled=false
 fittsLawIsRequested=false
 floatingInternalGapIsForced=0
 iconSize=42
@@ -152,7 +151,7 @@ mouseWheelActions=false
 offset=-13
 panelShadows=false
 panelSize=100
-panelTransparency=40
+panelTransparency=60
 screenEdgeMargin=4
 scrollAction=ScrollDesktops
 shadowColorType=Theme
@@ -168,7 +167,7 @@ zoomLevel=0
 [Containments][13][Indicator]
 customType=org.kde.latte.win10
 enabled=true
-type=org.kde.latte.default
+type=org.kde.latte.win10
 
 [Containments][13][Indicator][org.kde.latte.default][General]
 enabledForApplets=false
@@ -176,7 +175,6 @@ extraDotOnActive=true
 minimizedTaskColoredDifferently=true
 
 [Containments][13][Indicator][org.kde.latte.win10][General]
-appletPadding=0.1
 lengthPadding=0.25
 maxBackgroundOpacity=0.3
 
@@ -205,19 +203,21 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][14][Applets][58][Configuration]
-PreloadWeight=0
+PreloadWeight=19
 
 [Containments][14][Applets][58][Configuration][Appearance]
-fontFamily=Ubuntu
-showDate=false
+boldText=true
+customDateFormat=ddd dMMM
+dateFormat=custom
+fontFamily=Lucida Handwriting
 use24hFormat=2
 
 [Containments][14][Applets][58][Configuration][ConfigDialog]
-DialogHeight=993
-DialogWidth=1908
+DialogHeight=989
+DialogWidth=1896
 
 [Containments][14][ConfigDialog]
-DialogHeight=944
+DialogHeight=942
 DialogWidth=539
 
 [Containments][14][Configuration]
@@ -242,7 +242,7 @@ mouseWheelActions=false
 offset=42
 panelShadows=false
 panelSize=100
-panelTransparency=40
+panelTransparency=60
 screenEdgeMargin=4
 scrollAction=ScrollTasks
 shadowOpacity=0
@@ -290,7 +290,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][15][Applets][131][Configuration]
-PreloadWeight=51
+PreloadWeight=91
 
 [Containments][15][ConfigDialog]
 DialogHeight=944
@@ -312,14 +312,13 @@ backgroundRadius=23
 dragActiveWindowEnabled=true
 fittsLawIsRequested=false
 iconSize=42
-inConfigureAppletsMode=true
 lengthExtMargin=6
 maxLength=3
 mouseWheelActions=false
 offset=48
 panelShadows=false
 panelSize=100
-panelTransparency=40
+panelTransparency=60
 screenEdgeMargin=4
 shadowOpacity=0
 shadowSize=0
@@ -327,7 +326,7 @@ shadowsUpgraded=true
 splitterPosition=0
 splitterPosition2=2
 tasksUpgraded=true
-thickMargin=8
+thickMargin=10
 titleTooltips=false
 zoomLevel=0
 
@@ -363,7 +362,7 @@ immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][16][Applets][73][Configuration]
-PreloadWeight=0
+PreloadWeight=53
 
 [Containments][16][Applets][74]
 immutability=1
@@ -419,7 +418,10 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][16][Applets][87][Configuration]
-PreloadWeight=2
+PreloadWeight=5
+
+[Containments][16][Applets][87][Configuration][General]
+raiseMaximumVolume=true
 
 [Containments][16][ConfigDialog]
 DialogHeight=984
@@ -478,11 +480,11 @@ immutability=1
 plugin=org.kde.plasma.systemtray
 
 [Containments][17][Applets][94][Configuration]
-PreloadWeight=73
+PreloadWeight=78
 SystrayContainmentId=16
 
 [Containments][17][ConfigDialog]
-DialogHeight=944
+DialogHeight=942
 DialogWidth=539
 
 [Containments][17][Configuration]
@@ -501,14 +503,13 @@ backgroundRadius=23
 dragActiveWindowEnabled=true
 fittsLawIsRequested=false
 iconSize=42
-inConfigureAppletsMode=true
 lengthExtMargin=6
 maxLength=25
 mouseWheelActions=false
 offset=25
 panelShadows=false
 panelSize=100
-panelTransparency=40
+panelTransparency=60
 screenEdgeMargin=4
 shadowOpacity=0
 shadowSize=0
@@ -559,7 +560,7 @@ PreloadWeight=0
 
 [Containments][18][Applets][134][Configuration][ConfigDialog]
 DialogHeight=989
-DialogWidth=1908
+DialogWidth=1040
 
 [Containments][18][Applets][134][Configuration][General]
 clickCommand=Parachute
@@ -592,7 +593,7 @@ immutability=1
 plugin=org.kde.plasma.translator
 
 [Containments][18][Applets][136][Configuration]
-PreloadWeight=15
+PreloadWeight=0
 
 [Containments][18][Applets][136][Configuration][ConfigDialog]
 DialogHeight=989
@@ -619,7 +620,6 @@ appletOrder=136;134;135
 appletShadowsEnabled=false
 autoSizeEnabled=false
 backgroundRadius=23
-blurEnabled=false
 dragActiveWindowEnabled=true
 fittsLawIsRequested=false
 iconSize=42
@@ -629,7 +629,7 @@ mouseWheelActions=false
 offset=-42
 panelShadows=false
 panelSize=100
-panelTransparency=40
+panelTransparency=60
 screenEdgeMargin=4
 shadowOpacity=0
 shadowSize=0
@@ -652,7 +652,7 @@ extraDotOnActive=true
 minimizedTaskColoredDifferently=true
 
 [LayoutSettings]
-activities={free-activities}
+activities=
 backgroundStyle=0
 color=blue
 customBackground=
@@ -662,5 +662,6 @@ icon=
 lastUsedActivity=4866feb0-5428-4971-bf45-18bd3989ebad
 launchers=
 preferredForShortcutsTouched=true
+sharedLayout=
 showInMenu=true
 version=2

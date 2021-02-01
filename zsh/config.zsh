@@ -7,19 +7,33 @@
 #                        |___/
 
 export PATH=$PATH:/opt/anaconda/bin/:$HOME/.bin:/usr/local/bin:$HOME/.gem/ruby/2.7.0/bin:/root/.gem/ruby/2.7.0/bin:/var/lib/snapd/snap/bin
-export VISUAL=vim
-export EDITOR=vim
-setopt autocd #change dirictories without ch ( directory name only ) 
-setopt inc_append_history # To save every command before it is executed 
-setopt share_history # share history between sesions 
-setopt beep 
+export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/vim
 
-export SAVEHIST=1000
-export HISTSIZE=1000
-export HISTFILE=~/.zsh_history
+## Options section
+setopt correct                                                  # Auto correct mistakes
+setopt extendedglob                                             # Extended globbing. Allows using regular expressions with *
+setopt nocaseglob                                               # Case insensitive globbing
+setopt rcexpandparam                                            # Array expension with parameters
+setopt numericglobsort                                          # Sort filenames numerically when it makes sense
+setopt appendhistory                                            # Immediately append history instead of overwriting
+setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
+setopt notify                                                   # report the status of background jobs immediately
+
+
+setopt autocd                                                   # change dirictories without ch ( directory name only ) 
+setopt inc_append_history                                       # To save every command before it is executed 
+setopt share_history                                            # share history between sesions 
+
+export SAVEHIST=10000
+export HISTSIZE=10000
+export HISTFILE=~/.zhistor
 
 ZSH_AUTOSUGGEST_STRATEGY=(history completion )
 ZSH_AUTOSUGGEST_USE_ASYNC=1 #async auto suggestions
+
+# hide EOL sign ('%')
+PROMPT_EOL_MARK=""
 
 fast-theme -q default # set theme for fast-theme-auto-highlight plugin
 
@@ -31,26 +45,57 @@ fast-theme -q default # set theme for fast-theme-auto-highlight plugin
 #  \__,_|\__,_|\__\___/ \___\___/|_| |_| |_| .__/|_|\___|\__\___|
 #                                          |_|                   
 
-zstyle ':completion:*' completer _complete _match _approximate #_correct 
-zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=* l:|=*'
-zstyle ':completion:*:match:*' original only
+zstyle ':completion:*' completer _complete _match _approximate  
+# zstyle ':completion:*' matcher-list '' 'm:{[:lower:]}={[:upper:]}' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' 'r:|[._-]=* r:|=* l:|=*'
+# zstyle ':completion:*:match:*' original only
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
+zstyle ':completion:*' rehash true                              # automatically find new executables in path 
+
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/3))numeric)'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' file-sort time
 zstyle :compinstall filename '/home/ali/.zshrc'
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
+
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
+
 autoload -Uz compinit
 zmodload zsh/complist
 compinit
-#_comp_options+=(globdots)		# Include hidden files.
 
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
+
+WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
+
+
+# Offer to install missing package if command is not found
+if [[ -r /usr/share/zsh/functions/command-not-found.zsh ]]; then
+    source /usr/share/zsh/functions/command-not-found.zsh
+    export PKGFILE_PROMPT_INSTALL_MISSING=1
+fi
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+
+# Color man pages
+export LESS_TERMCAP_mb=$'\E[01;32m'
+export LESS_TERMCAP_md=$'\E[01;32m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;47;34m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;36m'
+export LESS=-R
+
+#_comp_options+=(globdots)		# Include hidden files.
 
 #######################################################################
 #  _                                    
@@ -61,17 +106,55 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 #           |___/                |_|    
 
 # key bindings for history-substring-search
+
+bindkey -e
+
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-bindkey -M vicmd 'k'  history-substring-search-up
-bindkey -M vicmd 'j'  history-substring-search-down
-bindkey -M viins ';;' vi-cmd-mode # exit from viins to vicmd (normal mode) using ;;
-bindkey -M viins ';d' kill-whole-line
-bindkey -M vicmd "J"  beginning-of-line
-bindkey -M vicmd "K"  end-of-line
 bindkey ";s" sudoSwitch 
-bindkey ";h" history-incremental-pattern-search-backward
+bindkey "\e\e" sudoSwitch 
+
+bindkey '^[[7~' beginning-of-line                               # Home key
+bindkey '^[[H' beginning-of-line                                # Home key
+if [[ "${terminfo[khome]}" != "" ]]; then
+  bindkey "${terminfo[khome]}" beginning-of-line                # [Home] - Go to beginning of line
+fi
+bindkey '^[[8~' end-of-line                                     # End key
+bindkey '^[[F' end-of-line                                      # End key
+if [[ "${terminfo[kend]}" != "" ]]; then
+  bindkey "${terminfo[kend]}" end-of-line                       # [End] - Go to end of line
+fi
+bindkey '^[[2~' overwrite-mode                                  # Insert key
+bindkey '^[[3~' delete-char                                     # Delete key
+bindkey '^[[C'  forward-char                                    # Right key
+bindkey '^[[D'  backward-char                                   # Left key
+bindkey '^[[5~' history-beginning-search-backward               # Page up key
+bindkey '^[[6~' history-beginning-search-forward                # Page down key
+
+# Navigate words with ctrl+arrow keys
+bindkey '^[Oc' forward-word                                     #
+bindkey '^[Od' backward-word                                    #
+bindkey '^[[1;5D' backward-word                                 #
+bindkey '^[[1;5C' forward-word                                  #
+bindkey '^H' backward-kill-word                                 # delete previous word with ctrl+backspace
+bindkey '^[[Z' undo                                             # Shift+tab undo last action
+
+
+
+# bindkey -M vicmd 'k'  history-substring-search-up
+# bindkey -M vicmd 'j'  history-substring-search-down
+# bindkey -M viins ';;' vi-cmd-mode                               # exit from viins to vicmd (normal mode) using ;;
+# bindkey -M viins ';d' kill-whole-line
+# bindkey -M vicmd "J"  beginning-of-line
+# bindkey -M vicmd "K"  end-of-line
+
+# bindkey ";h" history-incremental-pattern-search-backward
+
+# bindkey -M menuselect 'h' vi-backward-char
+# bindkey -M menuselect 'k' vi-up-line-or-history
+# bindkey -M menuselect 'l' vi-forward-char
+# bindkey -M menuselect 'j' vi-down-line-or-history
 
 #######################################################################
 #   __                  _   _                 
@@ -107,3 +190,4 @@ else
 fi
 
 }
+
