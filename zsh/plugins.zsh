@@ -12,9 +12,7 @@
  zplugin ice wait lucid atload'_zsh_autosuggest_start'; zinit light zsh-users/zsh-autosuggestions
  zinit snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
  zinit light zsh-users/zsh-history-substring-search
-#zinit light ali-commits/zsh-cursorShapes 
  zinit light ali-commits/zsh-commandEditor
  zinit light zsh-users/zsh-completions
- zinit light zpm-zsh/clipboard
  zinit light zpm-zsh/colorize
  zinit light zdharma/fast-syntax-highlighting

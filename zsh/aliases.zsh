@@ -19,6 +19,7 @@ abbr -g ll="ls -l"
 abbr -g la="ls -lA"
 
 #aliases
+alias cat="bat"
 alias ~="cd ~"
 alias /="cd /"
 alias 0="cd ~"
