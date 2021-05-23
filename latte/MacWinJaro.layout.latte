@@ -22,21 +22,6 @@ viewType=0
 visibility=0
 wallpaperplugin=org.kde.image
 
-[Containments][12][Applets][142]
-immutability=1
-plugin=org.kde.plasma.translator
-
-[Containments][12][Applets][142][Configuration]
-PreloadWeight=0
-
-[Containments][12][Applets][142][Configuration][ConfigDialog]
-DialogHeight=991
-DialogWidth=1896
-
-[Containments][12][Applets][142][Configuration][General]
-destinationIndex=3
-sourceIndex=22
-
 [Containments][12][Applets][143]
 immutability=1
 plugin=com.github.zren.presentwindows
@@ -80,7 +65,7 @@ alignmentUpgraded=true
 animationLauncherBouncing=false
 animationWindowAddedInGroup=false
 animationWindowInAttention=false
-appletOrder=145;143;142
+appletOrder=145;143
 appletShadowsEnabled=false
 autoSizeEnabled=false
 backgroundRadius=15
@@ -99,7 +84,7 @@ shadowOpacity=0
 shadowSize=0
 shadowsUpgraded=true
 splitterPosition=2
-splitterPosition2=4
+splitterPosition2=3
 tasksUpgraded=true
 thickMargin=8
 titleTooltips=false
@@ -136,6 +121,27 @@ viewType=0
 visibility=0
 wallpaperplugin=org.kde.image
 
+[Containments][13][Applets][148]
+immutability=1
+plugin=org.kde.netspeedWidget
+
+[Containments][13][Applets][148][Configuration]
+PreloadWeight=0
+
+[Containments][13][Applets][148][Configuration][Advanced]
+launchApplication=systemsettings.desktop
+launchApplicationEnabled=true
+
+[Containments][13][Applets][148][Configuration][ConfigDialog]
+DialogHeight=540
+DialogWidth=720
+
+[Containments][13][Applets][148][Configuration][General]
+shortUnits=true
+speedLayout=rows
+speedUnits=bits
+updateInterval=0.7
+
 [Containments][13][Applets][44]
 immutability=1
 plugin=org.kde.latte.plasmoid
@@ -149,7 +155,7 @@ animationWindowAddedInGroup=false
 animationWindowInAttention=false
 hoverAction=PreviewAndHighlightWindows
 isInLatteDock=true
-launchers59=applications:brave-browser.desktop,applications:firefox.desktop,applications:org.kde.dolphin.desktop,applications:Mailspring.desktop,applications:visual-studio-code.desktop,applications:teams.desktop,applications:discord.desktop,applications:telegramdesktop.desktop,applications:org.kde.konsole.desktop,applications:org.kde.plasma-systemmonitor.desktop,applications:trilium-notes.desktop
+launchers59=applications:brave-browser.desktop,applications:org.kde.dolphin.desktop,applications:Mailspring.desktop,applications:visual-studio-code.desktop,applications:teams.desktop,applications:discord.desktop,applications:telegramdesktop.desktop,applications:org.kde.konsole.desktop,applications:trilium-notes.desktop
 leftClickAction=CycleThroughTasks
 manualScrollTasksType=Disabled
 modifierClickAction=ToggleMinimized
@@ -171,13 +177,14 @@ alignmentUpgraded=true
 animationLauncherBouncing=false
 animationWindowAddedInGroup=false
 animationWindowInAttention=false
-appletOrder=44
+appletOrder=44;148
 appletShadowsEnabled=false
 autoSizeEnabled=false
 backgroundRadius=15
 fittsLawIsRequested=false
 floatingInternalGapIsForced=0
 iconSize=42
+inConfigureAppletsMode=true
 lengthExtMargin=20
 maxLength=52
 mouseWheelActions=false
@@ -325,7 +332,7 @@ immutability=1
 plugin=org.kde.plasma.notifications
 
 [Containments][15][Applets][131][Configuration]
-PreloadWeight=81
+PreloadWeight=92
 
 [Containments][15][ConfigDialog]
 DialogHeight=944
@@ -399,14 +406,14 @@ immutability=1
 plugin=org.kde.plasma.bluetooth
 
 [Containments][16][Applets][73][Configuration]
-PreloadWeight=51
+PreloadWeight=86
 
 [Containments][16][Applets][74]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
 
 [Containments][16][Applets][74][Configuration]
-PreloadWeight=9
+PreloadWeight=0
 
 [Containments][16][Applets][80]
 immutability=1
@@ -455,7 +462,7 @@ immutability=1
 plugin=org.kde.plasma.volume
 
 [Containments][16][Applets][87][Configuration]
-PreloadWeight=63
+PreloadWeight=86
 
 [Containments][16][Applets][87][Configuration][ConfigDialog]
 DialogHeight=989
@@ -495,27 +502,16 @@ viewType=0
 visibility=0
 wallpaperplugin=org.kde.image
 
-[Containments][17][Applets][138]
+[Containments][17][Applets][147]
 immutability=1
-plugin=org.kde.netspeedWidget
+plugin=org.kde.plasma.translator
 
-[Containments][17][Applets][138][Configuration]
-PreloadWeight=0
+[Containments][17][Applets][147][Configuration]
+PreloadWeight=6
 
-[Containments][17][Applets][138][Configuration][ConfigDialog]
-DialogHeight=990
-DialogWidth=1047
-
-[Containments][17][Applets][138][Configuration][General]
-byteColor=255,255,255
-customColors=true
-fontSize=85
-gigabyteColor=87,53,255
-kilobyteColor=246,255,74
-megabyteColor=66,170,64
-shortUnits=true
-showIcons=false
-showUnits=false
+[Containments][17][Applets][147][Configuration][General]
+destinationIndex=3
+sourceIndex=22
 
 [Containments][17][Applets][94]
 immutability=1
@@ -538,12 +534,13 @@ alignmentUpgraded=true
 animationLauncherBouncing=false
 animationWindowAddedInGroup=false
 animationWindowInAttention=false
-appletOrder=138;94
+appletOrder=94;147
 appletShadowsEnabled=false
 autoSizeEnabled=false
 backgroundRadius=15
 fittsLawIsRequested=false
 iconSize=42
+inConfigureAppletsMode=true
 lengthExtMargin=6
 maxLength=25
 mouseWheelActions=false
@@ -556,8 +553,8 @@ scrollAction=ScrollDesktops
 shadowOpacity=0
 shadowSize=0
 shadowsUpgraded=true
-splitterPosition=2
-splitterPosition2=3
+splitterPosition=1
+splitterPosition2=2
 tasksUpgraded=true
 thickMargin=8
 titleTooltips=false
@@ -583,6 +580,7 @@ disableBordersForMaximizedWindows=false
 icon=
 lastUsedActivity=4866feb0-5428-4971-bf45-18bd3989ebad
 launchers=
+popUpMargin=-1
 preferredForShortcutsTouched=true
 sharedLayout=
 showInMenu=true
