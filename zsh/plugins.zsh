@@ -16,3 +16,7 @@
  zinit light zsh-users/zsh-completions
  zinit light zpm-zsh/colorize
  zinit light zdharma/fast-syntax-highlighting
+
+
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh

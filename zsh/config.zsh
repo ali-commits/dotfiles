@@ -6,7 +6,13 @@
 #  \___\___/|_| |_|_| |_|\__, |
 #                        |___/
 
-export PATH=$PATH:/opt/anaconda/bin/:$HOME/.bin:/usr/local/bin:$HOME/.gem/ruby/2.7.0/bin:/root/.gem/ruby/2.7.0/bin:/var/lib/snapd/snap/bin
+if [ -d "$HOME/.local/bin" ]; then
+    export PATH=$HOME/.local/bin:$PATH
+fi
+if [ -d "/opt/anaconda/bin/" ]; then
+    export PATH=/opt/anaconda/bin/:$PATH
+fi
+
 export VISUAL=/usr/bin/vim
 export EDITOR=/usr/bin/vim
 
@@ -19,6 +25,12 @@ setopt numericglobsort                                          # Sort filenames
 setopt appendhistory                                            # Immediately append history instead of overwriting
 setopt histignorealldups                                        # If a new command is a duplicate, remove the older one
 setopt notify                                                   # report the status of background jobs immediately
+setopt nocheckjobs                                              # Don't warn about running processes when exiting
+setopt nobeep                                                   # No beep
+
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
 
 
 setopt autocd                                                   # change dirictories without ch ( directory name only ) 
@@ -61,9 +73,10 @@ zstyle :compinstall filename '/home/ali/.zshrc'
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
+# Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' cache-path ~/.cache/zcache
 
 autoload -Uz compinit
 zmodload zsh/complist
@@ -96,6 +109,15 @@ export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-R
 
 #_comp_options+=(globdots)		# Include hidden files.
+
+
+# Arch Linux command-not-found support, you must have package pkgfile installed
+# https://wiki.archlinux.org/index.php/Pkgfile#.22Command_not_found.22_hook
+[[ -e /usr/share/doc/pkgfile/command-not-found.zsh ]] && source /usr/share/doc/pkgfile/command-not-found.zsh
+
+# Advanced command-not-found hook
+[[ -e /usr/share/doc/find-the-command/ftc.zsh ]] && source /usr/share/doc/find-the-command/ftc.zsh
+
 
 #######################################################################
 #  _                                    
