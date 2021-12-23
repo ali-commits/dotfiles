@@ -12,7 +12,7 @@
 ### install zplugin
 if [ ! -d ~/.zinit ] 
 then
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+	sh -c "$(curl -fsSL https://git.io/zinit-install)"
 fi
 ### Added by Zplugin's installer
 source ~/.zinit/bin/zinit.zsh
@@ -36,9 +36,9 @@ export plugins=~/.zsh/plugins.zsh
 export config=~/.zsh/config.zsh
 
 # source plugins file
-[[ ! -f $plugins ]] && wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/plugins.zsh -O $plugins
-[[ ! -f $config ]] && wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/config.zsh -O $config
-[[ ! -f $abbrs ]] && wget https://raw.githubusercontent.com/newaaa41/configs/master/zsh/aliases.zsh -O $abbrs
+[[ ! -f $plugins ]] && wget https://raw.githubusercontent.com/ali-commits/configs/master/zsh/plugins.zsh -O $plugins
+[[ ! -f $config ]] && wget https://raw.githubusercontent.com/ali-commits/configs/master/zsh/config.zsh -O $config
+[[ ! -f $abbrs ]] && wget https://raw.githubusercontent.com/ali-commits/configs/master/zsh/aliases.zsh -O $abbrs
 
 source $plugins
 source $config
@@ -46,3 +46,13 @@ source $abbrs
 
 # source powerleve10k theme config file
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zdharma-continuum/zinit-annex-as-monitor \
+    zdharma-continuum/zinit-annex-bin-gem-node \
+    zdharma-continuum/zinit-annex-patch-dl \
+    zdharma-continuum/zinit-annex-rust
+
+### End of Zinit's installer chunk
