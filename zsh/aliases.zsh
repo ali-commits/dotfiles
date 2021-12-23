@@ -17,6 +17,9 @@ abbr -g sla="colorls -A"
 abbr -g slla="colorls -lA"
 abbr -g ll="ls -l"
 abbr -g la="ls -lA"
+abbr -g msen='trans ms:en'
+abbr -g enms='trans en:ms'
+abbr -g sp='trans -speak ms:'
 
 #aliases
 alias cat="bat"
