@@ -68,7 +68,7 @@ augroup END
 " | . \  __/ |_| | |  | | (_| | |_) |
 " |_|\_\___|\__, |_|  |_|\__,_| .__/ 
 "           |___/             |_|   
-"keymap
+" keymap
 
 map <C-n> :NERDTreeToggle<CR>
 map <C-m> :set nu! relativenumber!<CR>

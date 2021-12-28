@@ -12,6 +12,9 @@ fi
 if [ -d "/opt/anaconda/bin/" ]; then
     export PATH=/opt/anaconda/bin/:$PATH
 fi
+if [ -d "$HOME/.bin" ]; then
+    export PATH=$HOME/.bin:$PATH
+fi
 
 export VISUAL=/usr/bin/vim
 export EDITOR=/usr/bin/vim
