@@ -35,8 +35,8 @@ autoload -Uz _zinit
 [ ! -d ~/.zsh ] && mkdir ~/.zsh
 ### define variables for the resource files
 export ABBRS=~/.zsh/aliases.zsh
-export PLUGINS=~/.zsh/$PLUGINS.zsh
-export CONFIGS=~/.zsh/CONFIGS.zsh
+export PLUGINS=~/.zsh/plugins.zsh
+export CONFIGS=~/.zsh/config.zsh
 
 # source $PLUGINS file
 [[ ! -f $PLUGINS ]] && wget https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/$$PLUGINS.zsh -O $$PLUGINS
