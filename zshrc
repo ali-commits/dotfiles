@@ -34,19 +34,19 @@ autoload -Uz _zinit
 ### check if the resource file exist
 [ ! -d ~/.zsh ] && mkdir ~/.zsh
 ### define variables for the resource files
-export abbrs=~/.zsh/aliases.zsh
-export plugins=~/.zsh/plugins.zsh
-export config=~/.zsh/config.zsh
+export ABBRS=~/.zsh/aliases.zsh
+export PLUGINS=~/.zsh/$PLUGINS.zsh
+export CONFIGS=~/.zsh/CONFIGS.zsh
 
-# source plugins file
-[[ ! -f $plugins ]] && wget https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/plugins.zsh -O $plugins
-[[ ! -f $config ]] && wget https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/config.zsh -O $config
-[[ ! -f $abbrs ]] && wget https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/aliases.zsh -O $abbrs
+# source $PLUGINS file
+[[ ! -f $PLUGINS ]] && wget https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/$$PLUGINS.zsh -O $$PLUGINS
+[[ ! -f $CONFIGS ]] && wget https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/CONFIGS.zsh -O $CONFIGS
+[[ ! -f $ABBRS ]] && wget https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/aliases.zsh -O $ABBRS
 
-source $plugins
-source $config
-source $abbrs
+source $PLUGINS
+source $CONFIGS
+source $ABBRS
 
-# source powerleve10k theme config file
+# source powerleve10k theme CONFIGS file
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
