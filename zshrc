@@ -15,20 +15,25 @@ fi
 ### check if the resource file exist
 [ ! -d ~/.zsh ] && mkdir ~/.zsh
 ### define variables for the resource files
-export ABBRS=~/.zsh/aliases.zsh
+export ABBRS=~/.zsh/abbreviations.zsh
 export PLUGINS=~/.zsh/plugins.zsh
 export CONFIGS=~/.zsh/config.zsh
+export KEYBINDINGS=~/.zsh/keybindings.zsh
+export function=~/.zsh/functions.zsh
 
+REPO=https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh
 
-[[ ! -f $PLUGINS ]] && wget https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/plugins.zsh -O $PLUGINS
-[[ ! -f $CONFIGS ]] && wget https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/config.zsh -O $CONFIGS
-[[ ! -f $ABBRS ]] && wget https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/aliases.zsh -O $ABBRS
+[[ ! -f $PLUGINS ]] && wget $REPO/plugins.zsh -O $PLUGINS                 
+[[ ! -f $CONFIGS ]] && wget $REPO/zsh/config.zsh -O $CONFIGS              
+[[ ! -f $KEYBINDINGS ]] && wget $REPO/zsh/keybindings.zsh -O $KEYBINDINGS 
+[[ ! -f $function ]] && wget $REPO/zsh/functions.zsh -O $function         
+[[ ! -f $ABBRS ]] && wget $REPO/zsh/abbreviations.zsh -O $ABBRS           
 
 source $PLUGINS
 source $CONFIGS
+source $KEYBINDINGS
+source $function
 source $ABBRS
-
-
 
 # source powerleve10k theme CONFIGS file
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
