@@ -1,5 +1,3 @@
-
-
 #######################################################################
 #  _                                    
 # | | _____ _   _ _ __ ___   __ _ _ __  
@@ -8,7 +6,6 @@
 # |_|\_\___|\__, |_| |_| |_|\__,_| .__/ 
 #           |___/                |_|    
 
-# key bindings for history-substring-search
 
 bindkey -e
 
@@ -44,17 +41,3 @@ bindkey '^H' backward-kill-word                                 # delete previou
 bindkey '^[[Z' undo                                             # Shift+tab undo last action
 
 
-
-# bindkey -M vicmd 'k'  history-substring-search-up
-# bindkey -M vicmd 'j'  history-substring-search-down
-# bindkey -M viins ';;' vi-cmd-mode                               # exit from viins to vicmd (normal mode) using ;;
-# bindkey -M viins ';d' kill-whole-line
-# bindkey -M vicmd "J"  beginning-of-line
-# bindkey -M vicmd "K"  end-of-line
-
-# bindkey ";h" history-incremental-pattern-search-backward
-
-# bindkey -M menuselect 'h' vi-backward-char
-# bindkey -M menuselect 'k' vi-up-line-or-history
-# bindkey -M menuselect 'l' vi-forward-char
-# bindkey -M menuselect 'j' vi-down-line-or-history
