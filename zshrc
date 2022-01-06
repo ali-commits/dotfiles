@@ -19,21 +19,24 @@ export ABBRS=~/.zsh/abbreviations.zsh
 export PLUGINS=~/.zsh/plugins.zsh
 export CONFIGS=~/.zsh/config.zsh
 export KEYBINDINGS=~/.zsh/keybindings.zsh
-export function=~/.zsh/functions.zsh
+export FUNCTIONS=~/.zsh/functions.zsh
+export ALIASES=~/.zsh/aliases.zsh
 
 REPO=https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh
 
 [[ ! -f $PLUGINS ]] && wget $REPO/plugins.zsh -O $PLUGINS                 
 [[ ! -f $CONFIGS ]] && wget $REPO/zsh/config.zsh -O $CONFIGS              
 [[ ! -f $KEYBINDINGS ]] && wget $REPO/zsh/keybindings.zsh -O $KEYBINDINGS 
-[[ ! -f $function ]] && wget $REPO/zsh/functions.zsh -O $function         
+[[ ! -f $FUNCTIONS ]] && wget $REPO/zsh/functions.zsh -O $FUNCTIONS         
 [[ ! -f $ABBRS ]] && wget $REPO/zsh/abbreviations.zsh -O $ABBRS           
+[[ ! -f $ALIASES ]] && wget $REPO/zsh/aliases.zsh -O $ALIASES
 
 source $PLUGINS
 source $CONFIGS
 source $KEYBINDINGS
-source $function
+source $FUNCTIONS
 source $ABBRS
+source $ALIASES
 
 # source powerleve10k theme CONFIGS file
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

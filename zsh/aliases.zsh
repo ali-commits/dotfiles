@@ -1,0 +1,5 @@
+cmd_alias grep 'rg'
+cmd_alias cat 'bat'
+cmd_alias ls 'exa'
+cmd_alias hex 'hexyl'
+cmd_alias du 'dust'

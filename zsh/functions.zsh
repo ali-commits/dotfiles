@@ -11,6 +11,7 @@ take() # create dirctory and cd to it
 { 
         mkdir $1 && cd $1
 }
+
 # auto list dirs (with colorls) when cd to directory 
 if  command -v colorls &> /dev/null
 then
@@ -18,3 +19,11 @@ then
 else
     chpwd() ls
 fi
+
+# alias a=b only if b is exist
+cmd_alias() {
+    if command -v $2 &> /dev/null
+    then
+        alias $1="$2"
+    fi
+}
