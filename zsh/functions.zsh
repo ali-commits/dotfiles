@@ -24,6 +24,9 @@ fi
 cmd_alias() {
     if command -v $2 &> /dev/null
     then
-        alias $1="$2"
+        a=$1
+        shift
+        alias $a="$*"
     fi
 }
+

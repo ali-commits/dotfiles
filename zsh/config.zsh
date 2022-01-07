@@ -83,6 +83,9 @@ autoload -Uz compinit
 zmodload zsh/complist
 compinit
 
+autoload -U bashcompinit
+bashcompinit
+eval "$(register-python-argcomplete pipx)"                      # pipx completion
 
 WORDCHARS=${WORDCHARS//\/[&.;]}                                 # Don't consider certain characters part of the word
 
