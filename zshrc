@@ -22,7 +22,7 @@ export KEYBINDINGS=~/.zsh/keybindings.zsh
 export FUNCTIONS=~/.zsh/functions.zsh
 export ALIASES=~/.zsh/aliases.zsh
 
-REPO=https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh
+REPO=https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/
 
 [[ ! -f $PLUGINS ]] && curl $REPO/plugins.zsh > $PLUGINS                 
 [[ ! -f $CONFIGS ]] && curl $REPO/config.zsh > $CONFIGS              
