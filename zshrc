@@ -24,12 +24,12 @@ export ALIASES=~/.zsh/aliases.zsh
 
 REPO=https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh/
 
-[[ ! -f $PLUGINS ]] && curl $REPO/plugins.zsh > $PLUGINS                 
-[[ ! -f $CONFIGS ]] && curl $REPO/config.zsh > $CONFIGS              
-[[ ! -f $KEYBINDINGS ]] && curl $REPO/keybindings.zsh > $KEYBINDINGS 
-[[ ! -f $FUNCTIONS ]] && curl $REPO/functions.zsh > $FUNCTIONS         
-[[ ! -f $ABBRS ]] && curl $REPO/abbreviations.zsh > $ABBRS           
-[[ ! -f $ALIASES ]] && curl $REPO/aliases.zsh > $ALIASES
+[[ ! -f $PLUGINS ]] && curl -L $REPO/plugins.zsh > $PLUGINS                 
+[[ ! -f $CONFIGS ]] && curl -L $REPO/config.zsh > $CONFIGS              
+[[ ! -f $KEYBINDINGS ]] && curl -L $REPO/keybindings.zsh > $KEYBINDINGS 
+[[ ! -f $FUNCTIONS ]] && curl -L $REPO/functions.zsh > $FUNCTIONS         
+[[ ! -f $ABBRS ]] && curl -L $REPO/abbreviations.zsh > $ABBRS           
+[[ ! -f $ALIASES ]] && curl -L $REPO/aliases.zsh > $ALIASES
 
 source $PLUGINS
 source $CONFIGS
