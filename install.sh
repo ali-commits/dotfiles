@@ -16,15 +16,14 @@ export pkgs=(
     neofetch
     neovim
     exa
-    bottom
+    # bottom
     ripgrep
-    fd
+    # fd
     bat
-    procs
-    tokei
+    # procs
+    # tokei
     zoxide
     bpython
-    ipython
 )
 
 if command -v apt >/dev/null 2>&1; then
