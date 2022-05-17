@@ -28,28 +28,28 @@ export pkgs=(
 )
 
 if command -v apt >/dev/null 2>&1; then
-    apt update
-    apt install -y ${pkgs[@]}
+    sudo apt update
+    sudo apt install -y ${pkgs[@]}
     echo "Installed packages using apt"
 elif command -v paru >/dev/null 2>&1; then
     paru -Syu
     paru -S --noconfirm --needed ${pkgs[@]}
     echo "Installed packages using pacman"
 elif command -v pacman >/dev/null 2>&1; then
-    pacman -Syu
-    pacman -S --noconfirm --needed ${pkgs[@]}
+    sudo pacman -Syu
+    sudo pacman -S --noconfirm --needed ${pkgs[@]}
     echo "Installed packages using pacman"
 elif command -v dnf >/dev/null 2>&1; then
-    dnf -y update
-    dnf -y install ${pkgs[@]}
+    sudo dnf -y update
+    sudo dnf -y install ${pkgs[@]}
     echo "Installed packages using dnf"
 elif command -v zypper >/dev/null 2>&1; then
-    zypper -y update
-    zypper -y install ${pkgs[@]}
+    sudo zypper -y update
+    sudo zypper -y install ${pkgs[@]}
     echo "Installed packages using zypper"
 elif command -v yum >/dev/null 2>&1; then
-    yum -y update
-    yum -y install ${pkgs[@]}
+    sudo yum -y update
+    sudo yum -y install ${pkgs[@]}
     echo "Installed packages using yum"
 else
     echo "No package manager found"
