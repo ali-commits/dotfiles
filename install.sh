@@ -26,17 +26,35 @@ export pkgs=(
     bpython
 )
 
+export pkgs_full=(
+    docker
+    docker-compose
+    zsh
+    grc
+    neofetch
+    neovim
+    exa
+    bottom
+    ripgrep
+    fd
+    bat
+    procs
+    tokei
+    zoxide
+    bpython
+)
+
 if command -v apt >/dev/null 2>&1; then
     sudo apt update
     sudo apt install -y ${pkgs[@]}
     echo "Installed packages using apt"
 elif command -v paru >/dev/null 2>&1; then
     paru -Syu
-    paru -S --noconfirm --needed ${pkgs[@]}
+    paru -S --noconfirm --needed ${pkgs_full[@]}
     echo "Installed packages using pacman"
 elif command -v pacman >/dev/null 2>&1; then
     sudo pacman -Syu
-    sudo pacman -S --noconfirm --needed ${pkgs[@]}
+    sudo pacman -S --noconfirm --needed ${pkgs_full[@]}
     echo "Installed packages using pacman"
 elif command -v dnf >/dev/null 2>&1; then
     sudo dnf -y update
@@ -53,3 +71,5 @@ elif command -v yum >/dev/null 2>&1; then
 else
     echo "No package manager found"
 fi
+
+sudo groupadd docker $$ sudo usermod -aG docker $USER;
