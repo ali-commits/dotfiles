@@ -1,6 +1,9 @@
+# create alias if command exists
+# check $FUNCTIONS file for more info on cmd_alias function
+
 cmd_alias grep 'rg'
 cmd_alias cat 'bat'
-cmd_alias ls 'exa'
+cmd_alias ls 'lsd'
 cmd_alias hex 'hexyl'
 cmd_alias du 'dust'
 cmd_alias vi 'nvim'

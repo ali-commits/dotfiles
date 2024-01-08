@@ -22,6 +22,7 @@ export KEYBINDINGS=~/.zsh/keybindings.zsh
 export FUNCTIONS=~/.zsh/functions.zsh
 export ALIASES=~/.zsh/aliases.zsh
 
+### download the resource files from github
 REPO=https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh
 
 [[ ! -f $PLUGINS ]] && curl $REPO/plugins.zsh > $PLUGINS                 
@@ -31,12 +32,13 @@ REPO=https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh
 [[ ! -f $ABBRS ]] && curl $REPO/abbreviations.zsh > $ABBRS           
 [[ ! -f $ALIASES ]] && curl $REPO/aliases.zsh > $ALIASES
 
+### source the resource files
 source $PLUGINS
 source $CONFIGS
 source $KEYBINDINGS
 source $FUNCTIONS
-source $ABBRS
 source $ALIASES
+# source $ABBRS
 
 # source powerleve10k theme CONFIGS file
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

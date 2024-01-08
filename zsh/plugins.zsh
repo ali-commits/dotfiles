@@ -34,18 +34,53 @@ zinit light-mode for \
 ### End of Zinit's installer chunk
 
 
- zinit ice depth=1; zinit light romkatv/powerlevel10k
- zinit light ali-commits/zsh-sudoSwitch
- zinit light ali-commits/zsh-abbr
- zplugin ice wait lucid atload'_zsh_autosuggest_start'; zinit light zsh-users/zsh-autosuggestions
- zinit snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
- zinit light zsh-users/zsh-history-substring-search
- zinit light ali-commits/zsh-commandEditor
- zinit light zsh-users/zsh-completions
- zinit light zpm-zsh/colorize
- zinit light zdharma-continuum/fast-syntax-highlighting
- zinit load zdharma-continuum/history-search-multi-word
- zinit light MichaelAquilina/zsh-autoswitch-virtualenv
+#  zinit ice depth=1; zinit light romkatv/powerlevel10k
+#  zinit light ali-commits/zsh-sudoSwitch
+# #  zinit light ali-commits/zsh-abbr
+#  zplugin ice wait lucid atload'_zsh_autosuggest_start'; zinit light zsh-users/zsh-autosuggestions
+#  zinit snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
+#  zinit light zsh-users/zsh-history-substring-search
+#  zinit light ali-commits/zsh-commandEditor
+#  zinit light zsh-users/zsh-completions
+#  zinit light zpm-zsh/colorize
+#  zinit light zdharma-continuum/fast-syntax-highlighting
+#  zinit load zdharma-continuum/history-search-multi-word
+#  zinit light MichaelAquilina/zsh-autoswitch-virtualenv
+#  zinit light olets/zsh-abbr
+
+# as suggested by chatGPT
+# Powerlevel10k
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+# zsh-sudoSwitch
+zinit ice depth=1 wait! silent; zinit light ali-commits/zsh-sudoSwitch
+
+# zsh-autosuggestions
+zinit ice depth=1 wait! silent atload'_zsh_autosuggest_start'; zinit light zsh-users/zsh-autosuggestions
+
+# dirhistory
+zinit ice depth=1 wait! silent; zinit snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
+
+# zsh-history-substring-search
+zinit ice depth=1 wait! silent; zinit light zsh-users/zsh-history-substring-search
+
+# zsh-completions
+zinit ice depth=1 wait! silent; zinit light zsh-users/zsh-completions
+
+# colorize
+zinit ice depth=1; zinit light zpm-zsh/colorize
+
+# fast-syntax-highlighting
+zinit ice depth=1; zinit light zdharma-continuum/fast-syntax-highlighting
+
+# history-search-multi-word
+zinit ice depth=1 wait! silent; zinit load zdharma-continuum/history-search-multi-word
+
+# zsh-autoswitch-virtualenv
+zinit ice depth=1 wait! silent; zinit light MichaelAquilina/zsh-autoswitch-virtualenv
+
+# zsh-abbr
+zinit ice depth=1 wait! silent atinit"source $ABBRS"; zinit light olets/zsh-abbr
 
 
 

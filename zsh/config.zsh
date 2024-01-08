@@ -15,9 +15,14 @@ fi
 if [ -d "$HOME/.bin" ]; then
     export PATH=$HOME/.bin:$PATH
 fi
+if [ -d "$HOME/.cargo/bin/navi" ]; then
+    export PATH=$HOME/.cargo/bin/navi:$PATH
+fi
 
-export VISUAL=/usr/bin/vim
-export EDITOR=/usr/bin/vim
+
+
+export VISUAL=/usr/bin/nvim
+export EDITOR=/usr/bin/nvim
 
 ## Options section
 setopt correct                                                  # Auto correct mistakes
