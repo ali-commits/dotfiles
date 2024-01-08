@@ -20,7 +20,7 @@ else
     chpwd() ls
 fi
 
-# alias a=b only if b is exist
+# create alias if command exists
 cmd_alias() {
     if command -v $2 &> /dev/null
     then
