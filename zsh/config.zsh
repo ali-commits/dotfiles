@@ -79,6 +79,9 @@ zstyle :compinstall filename '/home/ali/.zshrc'
 zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*:cd:*' ignore-parents parent pwd
 
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
 # Speed up completions
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache on

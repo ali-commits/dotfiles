@@ -31,24 +31,6 @@ zdharma-continuum/zinit-annex-bin-gem-node \
 zdharma-continuum/zinit-annex-patch-dl \
 zdharma-continuum/zinit-annex-rust
 
-### End of Zinit's installer chunk
-
-
-#  zinit ice depth=1; zinit light romkatv/powerlevel10k
-#  zinit light ali-commits/zsh-sudoSwitch
-# #  zinit light ali-commits/zsh-abbr
-#  zplugin ice wait lucid atload'_zsh_autosuggest_start'; zinit light zsh-users/zsh-autosuggestions
-#  zinit snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
-#  zinit light zsh-users/zsh-history-substring-search
-#  zinit light ali-commits/zsh-commandEditor
-#  zinit light zsh-users/zsh-completions
-#  zinit light zpm-zsh/colorize
-#  zinit light zdharma-continuum/fast-syntax-highlighting
-#  zinit load zdharma-continuum/history-search-multi-word
-#  zinit light MichaelAquilina/zsh-autoswitch-virtualenv
-#  zinit light olets/zsh-abbr
-
-# as suggested by chatGPT
 # Powerlevel10k
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 
@@ -82,5 +64,6 @@ zinit ice depth=1 wait! silent; zinit light MichaelAquilina/zsh-autoswitch-virtu
 # zsh-abbr
 zinit ice depth=1 wait! silent atload"[[ ! -f $ZPFX/.zsh-abbr-installed ]] && source $ABBRS && touch $ZPFX/.zsh-abbr-installed"; zinit light olets/zsh-abbr
 
+zinit ice depth=1 wait! silent; zinit light felixr/docker-zsh-completion
 
 

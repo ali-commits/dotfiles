@@ -32,17 +32,26 @@ cmd_alias() {
 
 # delete all abbreviations
 function abbr_clear_all() {
-    local abbrs=$(abbr list-abbreviations)
-    for abbr in $abbrs; do
-        abbr erase "$abbr"
+    abbrs=()
+    while IFS= read -r line; do
+        abbrs+=("$line")
+    done < <(abbr list-abbreviations)
+
+    for abbr in "${abbrs[@]}"; do
+        abbr erase -g $abbr
     done
 }
 
+
 # delete all abbreviations and reset installed flag
 function abbr_reset() {
-    local abbrs=$(abbr list-abbreviations)
-    for abbr in $abbrs; do
-        abbr erase "$abbr"
+    abbrs=()
+    while IFS= read -r line; do
+        abbrs+=("$line")
+    done < <(abbr list-abbreviations)
+
+    for abbr in "${abbrs[@]}"; do
+        abbr erase -g $abbr
     done
     rm -f "$ZPFX/.zsh-abbr-installed"
 }
