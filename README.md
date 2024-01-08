@@ -1,5 +1,5 @@
 
-# Alice's Dotfiles
+# My .dot files
 
 Welcome to my dotfiles repository! Dotfiles are used to customize your system and shell environment. This repository contains my personal configurations for various tools and shells, including Zsh, Vim, and others.
 
