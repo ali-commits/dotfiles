@@ -1,18 +1,18 @@
 #######################################################################
-#   __                  _   _                 
-#  / _|_   _ _ __   ___| |_(_) ___  _ __  ___ 
+#   __                  _   _
+#  / _|_   _ _ __   ___| |_(_) ___  _ __  ___
 # | |_| | | | '_ \ / __| __| |/ _ \| '_ \/ __|
 # |  _| |_| | | | | (__| |_| | (_) | | | \__ \
 # |_|  \__,_|_| |_|\___|\__|_|\___/|_| |_|___/
-#                                             
+#
 
-### functions 
+### functions
 take() # create dirctory and cd to it
-{ 
-        mkdir $1 && cd $1
+{
+    mkdir $1 && cd $1
 }
 
-# auto list dirs (with colorls) when cd to directory 
+# auto list dirs (with colorls) when cd to directory
 if  command -v colorls &> /dev/null
 then
     chpwd() colorls --group-directories-first
@@ -29,4 +29,22 @@ cmd_alias() {
         alias $a="$*"
     fi
 }
+
+# delete all abbreviations
+function abbr_clear_all() {
+    local abbrs=$(abbr list-abbreviations)
+    for abbr in $abbrs; do
+        abbr erase "$abbr"
+    done
+}
+
+# delete all abbreviations and reset installed flag
+function abbr_reset() {
+    local abbrs=$(abbr list-abbreviations)
+    for abbr in $abbrs; do
+        abbr erase "$abbr"
+    done
+    rm -f "$ZPFX/.zsh-abbr-installed"
+}
+
 
