@@ -116,4 +116,9 @@ export LESS_TERMCAP_us=$'\E[01;36m'
 export LESS=-R
 
 
+# if zoxide is installed, use it
+if command -v zoxide &> /dev/null; then
+    eval "$(zoxide init zsh)"
+fi
+
 
