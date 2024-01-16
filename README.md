@@ -1,11 +1,11 @@
-# configs
 
-```mirmaid
+# My .dot files
 
-graph TD
-    A[Christmas] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
-```
+Welcome to my dotfiles repository! Dotfiles are used to customize your system and shell environment. This repository contains my personal configurations for various tools and shells, including Zsh, Vim, and others.
+
+## Installation
+
+To install these dotfiles, run the following command in your terminal. This command will download and execute a script that automatically sets up the environment on your machine.
+
+```bash
+curl -L bit.ly/alicnfg | bash
