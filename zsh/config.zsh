@@ -6,19 +6,19 @@
 #  \___\___/|_| |_|_| |_|\__, |
 #                        |___/
 
-if [ -d "$HOME/.local/bin" ]; then
-    export PATH=$HOME/.local/bin:$PATH
-fi
-if [ -d "/opt/anaconda/bin/" ]; then
-    export PATH=/opt/anaconda/bin/:$PATH
-fi
-if [ -d "$HOME/.bin" ]; then
-    export PATH=$HOME/.bin:$PATH
-fi
-if [ -d "$HOME/.cargo/bin/navi" ]; then
-    export PATH=$HOME/.cargo/bin/navi:$PATH
-fi
+$Paths=(
+    $HOME/.local/bin
+    /opt/anaconda/bin/
+    $HOME/.bin
+    $HOME/.cargo/bin/navi
+    $HOME/.modular/pkg/packages.modular.com_mojo/bin/
+)
 
+for path in "${Paths[@]}"; do
+    if [ -d "$path" ]; then
+        export PATH="$path:$PATH"
+    fi
+done
 
 
 export VISUAL=/usr/bin/nvim
@@ -41,9 +41,9 @@ setopt pushd_ignore_dups
 setopt pushdminus
 
 
-setopt autocd                                                   # change dirictories without ch ( directory name only ) 
-setopt inc_append_history                                       # To save every command before it is executed 
-setopt share_history                                            # share history between sesions 
+setopt autocd                                                   # change dirictories without ch ( directory name only )
+setopt inc_append_history                                       # To save every command before it is executed
+setopt share_history                                            # share history between sesions
 
 export SAVEHIST=10000
 export HISTSIZE=10000
@@ -58,18 +58,18 @@ PROMPT_EOL_MARK=""
 fast-theme -q default # set theme for fast-theme-auto-highlight plugin
 
 #######################################################################
-#              _                                  _      _       
-#   __ _ _   _| |_ ___   ___ ___  _ __ ___  _ __ | | ___| |_ ___ 
+#              _                                  _      _
+#   __ _ _   _| |_ ___   ___ ___  _ __ ___  _ __ | | ___| |_ ___
 #  / _` | | | | __/ _ \ / __/ _ \| '_ ` _ \| '_ \| |/ _ \ __/ _ \
 # | (_| | |_| | || (_) | (_| (_) | | | | | | |_) | |  __/ ||  __/
 #  \__,_|\__,_|\__\___/ \___\___/|_| |_| |_| .__/|_|\___|\__\___|
-#                                          |_|                   
+#                                          |_|
 
-zstyle ':completion:*' completer _complete _match _approximate  
+zstyle ':completion:*' completer _complete _match _approximate
 
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'       # Case insensitive tab completion
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"         # Colored completion (different colors for dirs/files/etc)
-zstyle ':completion:*' rehash true                              # automatically find new executables in path 
+zstyle ':completion:*' rehash true                              # automatically find new executables in path
 
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/2))numeric)'
 zstyle ':completion:*' menu select

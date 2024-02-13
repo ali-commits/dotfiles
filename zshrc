@@ -42,3 +42,5 @@ source $ALIASES
 
 # source powerleve10k theme CONFIGS file
 [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/mojo
+export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin/
