@@ -52,9 +52,6 @@ zinit light zsh-users/zsh-autosuggestions
 zinit ice wait lucid
 zinit snippet OMZ::plugins/dirhistory/dirhistory.plugin.zsh
 
-# Magic Enter - Enter on an empty line runs `git status` (in a repo) or `ls`
-zinit ice wait lucid
-zinit snippet OMZ::plugins/magic-enter/magic-enter.plugin.zsh
 
 ###############################################################################
 #                         Productivity Plugins
