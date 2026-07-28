@@ -98,11 +98,11 @@ abbr -g "gunignore"="git update-index --no-assume-unchanged"
 ###############################################################################
 # Docker basics
 abbr -g "d"="docker"
-abbr -g "dc"="docker-compose"
-abbr -g "dcu"="docker-compose up -d"
-abbr -g "dcd"="docker-compose down"
-abbr -g "dcl"="docker-compose logs -f"
-abbr -g "dcp"="docker-compose pull"
+abbr -g "dc"="docker compose"
+abbr -g "dcu"="docker compose up -d"
+abbr -g "dcd"="docker compose down"
+abbr -g "dcl"="docker compose logs -f"
+abbr -g "dcp"="docker compose pull"
 
 # Docker containers
 abbr -g "dps"="docker ps"
