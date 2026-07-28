@@ -91,8 +91,7 @@ if (( $+commands[fzf] )); then
     # Loaded immediately (not deferred) so atuin can claim Ctrl+R afterwards
     zinit snippet https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh
 
-    # FZF Tab - Better completion selection
-    zinit ice wait lucid
+    # FZF Tab - Better completion selection (must load after compinit, no async wait)
     zinit light Aloxaf/fzf-tab
 
     # Forgit - Interactive git commands powered by fzf (forgit::log, forgit::add, ...)
