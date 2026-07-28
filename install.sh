@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 #
 # Dotfiles bootstrap for a new machine
-# Usage: curl -L bit.ly/alicnfg | bash
+# Usage: curl -L bit.ly/alidots | bash
 #
 # What it does:
 #   1. Downloads the dotfiles from GitHub
