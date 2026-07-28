@@ -206,9 +206,13 @@ fi
 ###############################################################################
 # 6. Default shell
 ###############################################################################
-if [ "$SHELL" != "$(command -v zsh)" ]; then
-    echo "==> Setting zsh as the default shell..."
-    chsh -s "$(command -v zsh)" "$USER"
+if command -v zsh >/dev/null 2>&1; then
+    current_shell_bin=$(readlink -f "$SHELL" 2>/dev/null || echo "$SHELL")
+    target_shell_bin=$(readlink -f "$(command -v zsh)" 2>/dev/null || command -v zsh)
+    if [ "$current_shell_bin" != "$target_shell_bin" ]; then
+        echo "==> Setting zsh as the default shell..."
+        chsh -s "$target_shell_bin" "$USER"
+    fi
 fi
 
 ###############################################################################
