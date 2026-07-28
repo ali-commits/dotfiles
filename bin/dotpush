@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+#
+# dotpush - push local dotfiles to the dotfiles repo
+# Usage: dotpush [commit message]
+
+set -euo pipefail
+
+REPO=git@github.com:ali-commits/dotfiles.git
+DIR=$HOME/.clone/dotfiles
+
+mkdir -p "$HOME/.clone"
+[ -d "$DIR" ] || git clone "$REPO" "$DIR"
+
+cd "$DIR"
+
+# Get the latest changes first so the push isn't rejected
+git pull --rebase
+
+# Make sure the target directories exist (git doesn't track empty dirs)
+mkdir -p zsh starship fastfetch bin
+
+# zsh
+cp ~/.zshrc zshrc
+for f in aliases abbreviations config functions keybindings plugins; do
+    cp ~/.zsh/$f.zsh zsh/$f.zsh
+done
+[ -f ~/.zsh/local.zsh.example ] && cp ~/.zsh/local.zsh.example zsh/local.zsh.example
+
+# dot-scripts in ~/.bin
+[ -f ~/.bin/dotpush ] && cp ~/.bin/dotpush bin/dotpush
+[ -f ~/.bin/dotpull ] && cp ~/.bin/dotpull bin/dotpull
+
+# optional configs (only if present on this machine)
+[ -f ~/.config/starship.toml ] && cp ~/.config/starship.toml starship/starship.toml
+[ -f ~/.vimrc ] && cp ~/.vimrc vimrc
+[ -f ~/.config/fastfetch/config.jsonc ] && cp ~/.config/fastfetch/config.jsonc fastfetch/config.jsonc
+
+git add -A
+
+if git diff --cached --quiet; then
+    echo "No changes to push."
+    exit 0
+fi
+
+commit_msg=${1:-$(date +%Y-%m-%d_%H:%M:%S)}
+git commit -m "$commit_msg"
+git push
+
+echo "==> Pushed: $commit_msg"

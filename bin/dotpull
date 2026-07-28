@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+#
+# dotpull - pull the latest dotfiles from the repo and apply them locally
+# Usage: dotpull
+#
+# Your current config is backed up to ~/dotfiles-backup-<timestamp> before
+# anything is overwritten. Machine-specific settings in ~/.zsh/local.zsh
+# are never touched.
+
+set -euo pipefail
+
+REPO=git@github.com:ali-commits/dotfiles.git
+DIR=$HOME/.clone/dotfiles
+
+mkdir -p "$HOME/.clone"
+if [ ! -d "$DIR" ]; then
+    git clone "$REPO" "$DIR"
+else
+    git -C "$DIR" pull --rebase
+fi
+
+cd "$DIR"
+
+# Back up the current config before overwriting
+BACKUP=$HOME/dotfiles-backup-$(date +%Y%m%d-%H%M%S)
+mkdir -p "$BACKUP"
+for f in ~/.zshrc ~/.zsh ~/.config/starship.toml ~/.vimrc; do
+    [ -e "$f" ] && cp -a "$f" "$BACKUP/"
+done
+echo "==> Current config backed up to $BACKUP"
+
+# zsh
+cp zshrc ~/.zshrc
+mkdir -p ~/.zsh ~/.config ~/.bin
+for f in aliases abbreviations config functions keybindings plugins; do
+    cp zsh/$f.zsh ~/.zsh/$f.zsh
+done
+[ -f zsh/local.zsh.example ] && cp zsh/local.zsh.example ~/.zsh/
+
+# optional configs
+[ -f starship/starship.toml ] && cp starship/starship.toml ~/.config/starship.toml
+[ -f vimrc ] && cp vimrc ~/.vimrc
+if [ -f fastfetch/config.jsonc ]; then
+    mkdir -p ~/.config/fastfetch
+    cp fastfetch/config.jsonc ~/.config/fastfetch/config.jsonc
+fi
+
+# the dot-scripts themselves (dotpush, dotpull, ...)
+for s in bin/*; do
+    cp "$s" ~/.bin/
+    chmod +x ~/.bin/"$(basename "$s")"
+done
+
+echo "==> Dotfiles applied. Run 'exec zsh' to reload your shell."

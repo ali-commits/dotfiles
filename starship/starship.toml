@@ -1,0 +1,210 @@
+# ~/.config/starship.toml
+# Tokyo Night themed two-line prompt
+# Palette: blue #7aa2f7, cyan #7dcfff, green #9ece6a, red #f7768e,
+#          yellow #e0af68, purple #bb9af7, fg #c0caf5
+
+format = '''[┌─](bold #7aa2f7)$os[─┤](bold #7aa2f7)$username$hostname[├─\[](bold #7aa2f7)$directory[\] ](bold #7aa2f7)$git_branch$git_status$git_commit$status
+[└](bold #7aa2f7)$shell$character'''
+
+right_format = '''$cmd_duration$package$golang$rust$terraform$python$nodejs$docker_context$container$gcloud$battery'''
+
+# Add a new line between prompts
+add_newline = true
+
+################################################################################
+## OS / User / Host
+################################################################################
+[os]
+format = '[\( ](bold #7aa2f7)[$symbol]($style)[ \)](bold #7aa2f7)'
+style = "bold white"
+disabled = false
+
+[os.symbols]
+Windows = ""
+Ubuntu = ""
+SUSE = ""
+Raspbian = ""
+Mint = "Mint"
+Macos = ""
+Manjaro = ""
+Linux = "🐧"
+Gentoo = ""
+Fedora = ""
+EndeavourOS = ""
+Debian = ""
+CentOS = ""
+Arch = ""
+Artix = ""
+Alpine = ""
+Amazon = ""
+Android = ""
+
+[username]
+style_user = "#9ece6a bold"
+style_root = "#f7768e bold"
+format = "[$user]($style)"
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[@](bold #7aa2f7)[$hostname](bold #9ece6a)'
+trim_at = "."
+disabled = false
+
+################################################################################
+## Directory
+################################################################################
+[directory]
+style = "#7dcfff bold"
+format = '[$path]($style)[$read_only]($read_only_style)'
+truncation_length = 3           # Keep the path short; git repos always show the repo root
+truncate_to_repo = true
+truncation_symbol = "…/"
+read_only = " 󰌾"
+read_only_style = "bold #f7768e"
+
+################################################################################
+## Prompt Character & Shell
+################################################################################
+[character]
+success_symbol = "[❯](bold #9ece6a)"
+error_symbol = "[❯](bold #f7768e)"   # Same shape, red — keeps the line aligned
+vimcmd_symbol = "[❮](bold #9ece6a)"
+vimcmd_replace_one_symbol = "[❮](bold #bb9af7)"
+vimcmd_replace_symbol = "[❮](bold #bb9af7)"
+vimcmd_visual_symbol = "[❮](bold #e0af68)"
+
+[shell]
+bash_indicator = "bash"
+fish_indicator = "fish"
+zsh_indicator = "zsh"
+powershell_indicator = "Powershell"
+cmd_indicator = "cmd"
+nu_indicator = "nu"
+xonsh_indicator = "xonsh"
+unknown_indicator = "?"
+format = '\([$indicator]($style)\) '
+style = "#bb9af7 bold"
+disabled = false
+
+################################################################################
+## Git
+################################################################################
+[git_branch]
+format = '[\[$symbol$branch\]]($style) '
+symbol = '󰘬 '
+style = "bold #bb9af7"
+
+[git_status]
+conflicted = ""
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕${ahead_count} ${behind_count}"
+untracked = "?${count}"
+stashed = '\$${count}'
+modified = "!${count}"
+staged = "+${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+style = "bold #e0af68"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+
+[git_commit]
+commit_hash_length = 8
+style = "bold #c0caf5"
+tag_symbol = ' '
+format = '([$hash$tag]($style) )'
+only_detached = false
+disabled = false
+
+################################################################################
+## Status / Duration (right side)
+################################################################################
+# Show the exit code only when the last command failed
+[status]
+style = "bold #f7768e"
+symbol = "✗"
+format = '[\[$symbol$status\]]($style) '
+map_symbol = true
+disabled = false
+
+[cmd_duration]
+min_time = 3_000  # Only show if the command took longer than 3 seconds
+format = '[󰔟 $duration]($style) '
+style = '#e0af68 bold'
+
+################################################################################
+## Language & Tooling (right side)
+################################################################################
+[package]
+format = "[$symbol$version]($style) "
+symbol = "📦 "
+style = "#e0af68 bold"
+
+[golang]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "bold #7dcfff"
+
+[rust]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "bold #f7768e"
+
+[terraform]
+format = "[$symbol$version]($style) "
+symbol = "💠 "
+style = "bold #bb9af7"
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style) '
+symbol = ' '
+style = "bold #7aa2f7"
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+symbol = " "
+style = "bold #9ece6a"
+
+[docker_context]
+format = "[$symbol$context]($style) "
+symbol = "🐳 "
+style = "#7dcfff bold"
+only_with_files = true
+
+[container]
+format = '[$symbol$name]($style) '
+symbol = "📦 "
+style = "#7aa2f7"
+
+[gcloud]
+format = '[$symbol$account(@$domain)(\($project\))]($style) '
+symbol = "☁️  "
+style = "bold #7aa2f7"
+
+################################################################################
+## Battery (right side, only when low or charging)
+################################################################################
+[battery]
+full_symbol = "🔋"
+charging_symbol = "🔌"
+discharging_symbol = "⚡"
+format = "[$symbol$percentage]($style) "
+
+[[battery.display]]
+threshold = 30
+style = "bold #f7768e"
+
+[[battery.display]]
+threshold = 100
+charging_symbol = "🔌"
+style = "bold #9ece6a"
+
+################################################################################
+## Time (disabled, enable if you want a clock on the right side)
+################################################################################
+[time]
+time_format = "%T"
+format = "[ $time]($style) "
+style = "#c0caf5"
+disabled = true

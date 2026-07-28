@@ -1,46 +1,63 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+# ~/.zshrc
+# Main Zsh configuration file that sources all other components
 
-#######################################################
-#  ___  ___  _   _ _ __ ___ ___ 
-# / __|/ _ \| | | | '__/ __/ _ \
-# \__ \ (_) | |_| | | | (_|  __/
-# |___/\___/ \__,_|_|  \___\___|
-#
+# Performance profiling (uncomment to enable startup timing)
+# zmodload zsh/zprof
 
-### check if the resource file exist
+###############################################################################
+#                            Directory Structure
+###############################################################################
+# Create zsh config directory if it doesn't exist
 [ ! -d ~/.zsh ] && mkdir ~/.zsh
-### define variables for the resource files
-export ABBRS=~/.zsh/abbreviations.zsh
-export PLUGINS=~/.zsh/plugins.zsh
-export CONFIGS=~/.zsh/config.zsh
-export KEYBINDINGS=~/.zsh/keybindings.zsh
-export FUNCTIONS=~/.zsh/functions.zsh
-export ALIASES=~/.zsh/aliases.zsh
 
-### download the resource files from github
-REPO=https://raw.githubusercontent.com/ali-commits/dotfiles/master/zsh
+# Define paths for the configuration components
+export ABBRS=~/.zsh/abbreviations.zsh      # Zsh abbreviations (zsh-abbr)
+export PLUGINS=~/.zsh/plugins.zsh          # Plugin manager and plugins
+export CONFIGS=~/.zsh/config.zsh           # Paths, env vars, options, completion
+export KEYBINDINGS=~/.zsh/keybindings.zsh  # Key bindings and mappings
+export FUNCTIONS=~/.zsh/functions.zsh      # Custom functions
+export ALIASES=~/.zsh/aliases.zsh          # General aliases
+export ZSH_CACHE=~/.cache/zsh              # Cache directory
 
-[[ ! -f $PLUGINS ]] && curl $REPO/plugins.zsh > $PLUGINS                 
-[[ ! -f $CONFIGS ]] && curl $REPO/config.zsh > $CONFIGS              
-[[ ! -f $KEYBINDINGS ]] && curl $REPO/keybindings.zsh > $KEYBINDINGS 
-[[ ! -f $FUNCTIONS ]] && curl $REPO/functions.zsh > $FUNCTIONS         
-[[ ! -f $ABBRS ]] && curl $REPO/abbreviations.zsh > $ABBRS           
-[[ ! -f $ALIASES ]] && curl $REPO/aliases.zsh > $ALIASES
+# Create cache directory if it doesn't exist
+[ ! -d $ZSH_CACHE ] && mkdir -p $ZSH_CACHE
 
-### source the resource files
+###############################################################################
+#                            Source Configuration Files
+###############################################################################
 source $PLUGINS
 source $CONFIGS
 source $KEYBINDINGS
 source $FUNCTIONS
 source $ALIASES
-# source $ABBRS
 
-# source powerleve10k theme CONFIGS file
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/.local/lib/mojo
-export PATH=$PATH:~/.modular/pkg/packages.modular.com_mojo/bin/
+# Machine-specific configuration (optional, not tracked in the repo)
+# Put things like OLLAMA_HOST, GOOGLE_CLOUD_*, etc. here
+[[ -f ~/.zsh/local.zsh ]] && source ~/.zsh/local.zsh
+
+###############################################################################
+#                            Machine-Specific Integrations
+###############################################################################
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
+
+# kiro shell integration
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
+
+# uv environment
+[[ -f "$HOME/.local/bin/env" ]] && . "$HOME/.local/bin/env"
+
+# Android SDK (only if installed)
+if [[ -d "$HOME/Android/Sdk" ]]; then
+    export ANDROID_HOME="$HOME/Android/Sdk"
+    export ANDROID_SDK_ROOT="$ANDROID_HOME"
+    path+=("$ANDROID_HOME/platform-tools" "$ANDROID_HOME/cmdline-tools/latest/bin" "$ANDROID_HOME/emulator")
+fi
+
+# Added by Antigravity CLI installer
+export PATH="$HOME/.local/bin:$PATH"
+
+# Performance monitoring (if enabled)
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    zprof
+fi

@@ -1,0 +1,11 @@
+# ~/.zsh/local.zsh
+# Machine-specific configuration — copy this file to ~/.zsh/local.zsh
+# It is sourced by .zshrc but NOT shared between machines.
+
+# PC examples:
+export OLLAMA_HOST=0.0.0.0:11434
+export GOOGLE_CLOUD_PROJECT=modular-granite-439916-g0
+export GOOGLE_CLOUD_LOCATION=global
+
+# Zellij auto-start (uncomment to enable)
+# eval "$(zellij setup --generate-auto-start zsh)"
