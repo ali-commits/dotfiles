@@ -31,53 +31,6 @@ zinit light-mode for \
 eval "$(starship init zsh)"
 
 ###############################################################################
-#                         FZF Configuration & Pre-Styles
-###############################################################################
-if (( $+commands[fzf] )); then
-    # TokyoNight colors to match the starship theme
-    export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border --cycle --color=bg+:#24283b,bg:#1a1b26,spinner:#7dcfff,hl:#7aa2f7,fg:#c0caf5,header:#7aa2f7,info:#bb9af7,pointer:#7dcfff,marker:#9ece6a,fg+:#c0caf5,prompt:#bb9af7,hl+:#7aa2f7'
-
-    # Use fd for file/dir listing (respects .gitignore, much faster than find)
-    if (( $+commands[fd] )); then
-        export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-        export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
-    fi
-
-    # Previews: bat for files, eza tree for directories
-    if (( $+commands[bat] )); then
-        export FZF_CTRL_T_OPTS='--preview "bat --color=always --style=numbers --line-range=:200 {}" --preview-window=right,60%,wrap'
-    fi
-    if (( $+commands[eza] )); then
-        export FZF_ALT_C_OPTS='--preview "eza --tree --level=2 --color=always {} 2>/dev/null || ls -la {}"'
-    fi
-
-    # FZF Tab configuration MUST be defined BEFORE fzf-tab plugin loads
-    zstyle ':fzf-tab:*' fzf-command fzf
-    zstyle ':fzf-tab:*' fzf-flags '--height=50% --layout=reverse --border --cycle'
-    zstyle ':fzf-tab:*' fzf-bindings 'tab:accept'
-    zstyle ':fzf-tab:*' continuous-trigger '/'
-    zstyle ':fzf-tab:*' switch-group ',' '.'
-    zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath 2>/dev/null || ls $realpath'
-    zstyle ':fzf-tab:complete:*:*' fzf-preview 'if [ -d $realpath ]; then eza -1 --color=always $realpath 2>/dev/null || ls $realpath; else bat --color=always --style=plain $realpath 2>/dev/null || less ${(Q)realpath}; fi'
-fi
-
-###############################################################################
-#                         FZF Integration & Plugins
-###############################################################################
-if (( $+commands[fzf] )); then
-    # FZF completion and key bindings (Ctrl+T, Alt+C)
-    zinit snippet https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh
-
-    # FZF Tab - Better completion selection (must load AFTER compinit, BEFORE autosuggestions)
-    zinit light Aloxaf/fzf-tab
-
-    # Forgit - Interactive git commands powered by fzf
-    zinit ice wait lucid
-    zinit light wfxr/forgit
-fi
-
-###############################################################################
 #                         Essential Plugins
 ###############################################################################
 # Zsh Completions - Additional completion definitions
@@ -88,7 +41,7 @@ zinit light zsh-users/zsh-completions
 zinit ice wait lucid
 zinit light zsh-users/zsh-history-substring-search
 
-# Zsh Autosuggestions - Fish-like autosuggestions (loaded AFTER fzf-tab)
+# Zsh Autosuggestions - Fish-like autosuggestions
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
 
@@ -127,6 +80,36 @@ zinit light zpm-zsh/colorize
 # Docker Completions
 zinit ice wait lucid as"completion"
 zinit light felixr/docker-zsh-completion
+
+###############################################################################
+#                         FZF Integration
+###############################################################################
+if (( $+commands[fzf] )); then
+    # TokyoNight colors to match the starship theme
+    export FZF_DEFAULT_OPTS='--height 50% --layout=reverse --border --cycle --color=bg+:#24283b,bg:#1a1b26,spinner:#7dcfff,hl:#7aa2f7,fg:#c0caf5,header:#7aa2f7,info:#bb9af7,pointer:#7dcfff,marker:#9ece6a,fg+:#c0caf5,prompt:#bb9af7,hl+:#7aa2f7'
+
+    # Use fd for file/dir listing (respects .gitignore, much faster than find)
+    if (( $+commands[fd] )); then
+        export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+        export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+        export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
+    fi
+
+    # Previews: bat for files, eza tree for directories
+    if (( $+commands[bat] )); then
+        export FZF_CTRL_T_OPTS='--preview "bat --color=always --style=numbers --line-range=:200 {}" --preview-window=right,60%,wrap'
+    fi
+    if (( $+commands[eza] )); then
+        export FZF_ALT_C_OPTS='--preview "eza --tree --level=2 --color=always {} 2>/dev/null || ls -la {}"'
+    fi
+
+    # FZF completion and key bindings (Ctrl+T, Alt+C)
+    zinit snippet https://raw.githubusercontent.com/junegunn/fzf/master/shell/key-bindings.zsh
+
+    # Forgit - Interactive git commands powered by fzf
+    zinit ice wait lucid
+    zinit light wfxr/forgit
+fi
 
 ###############################################################################
 #                         Shell Integrations
