@@ -135,7 +135,7 @@ zstyle ':completion:*' rehash true           # Automatically find new executable
 # Completion menu settings
 zstyle ':completion:*:*:*:*:*' menu select  # Interactive menu for completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'  # Case insensitive completion
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}  # Colored completion
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}:ma=01;36;44"  # Colored completion with vibrant highlight for selection
 zstyle ':completion:*' special-dirs true    # Complete . and .. special directories
 zstyle ':completion:*' file-sort time       # Sort files by modification time
 zstyle -e ':completion:*:approximate:*' max-errors 'reply=($((($#PREFIX+$#SUFFIX)/2))numeric)'
