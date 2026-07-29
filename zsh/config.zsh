@@ -78,7 +78,8 @@ setopt GLOB_DOTS                  # Include hidden files in globbing
 setopt NO_CASE_GLOB               # Case insensitive globbing
 setopt NUMERIC_GLOB_SORT          # Sort filenames numerically when appropriate
 setopt RC_EXPAND_PARAM            # Array expansion with parameters
-setopt CORRECT                    # Try to correct command spelling
+unsetopt CORRECT                  # Disable command spelling correction (show error directly)
+unsetopt CORRECT_ALL              # Disable parameter/argument spelling correction
 
 ###############################################################################
 #                            Job Control
