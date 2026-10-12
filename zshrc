@@ -56,8 +56,10 @@ fi
 
 # Added by Antigravity CLI installer
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="/home/ali/.cache/.bun/bin:$PATH"
 
 # Performance monitoring (if enabled)
 if [[ "$PROFILE_STARTUP" == true ]]; then
     zprof
 fi
+export PATH="$HOME/.local/bin:$PATH"
